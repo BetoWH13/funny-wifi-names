@@ -1,54 +1,28 @@
-// api/categories.js
-const wifiNames = require('../data/wifi-names.json');
+// Netlify Function: categories.js
+// Returns WiFi names by category (e.g., "tech", "movies", "puns")
+
+const wifiNames = require("../data/wifi-names.json");
+const categorizedNames = require("../data/wifi-categories.json");
 
 exports.handler = async function(event, context) {
-  try {
-    // Check if a specific category was requested
-    const categoryName = event.queryStringParameters?.name;
+    const category = event.queryStringParameters.category || "all";
     
-    if (categoryName) {
-      // Find the requested category
-      const category = wifiNames.categories.find(cat => 
-        cat.name.toLowerCase() === categoryName.toLowerCase()
-      );
-      
-      if (!category) {
+    if (category === "all") {
         return {
-          statusCode: 404,
-          body: JSON.stringify({ error: `Category '${categoryName}' not found` })
+            statusCode: 200,
+            body: JSON.stringify({ wifi_names: wifiNames })
         };
-      }
-      
-      return {
-        statusCode: 200,
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify(category)
-      };
-    } else {
-      // Return all categories (names only, not the WiFi names)
-      const categoryList = wifiNames.categories.map(cat => ({
-        name: cat.name,
-        count: cat.names.length
-      }));
-      
-      return {
-        statusCode: 200,
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify({
-          categories: categoryList
-        })
-      };
     }
-  } catch (error) {
+    
+    if (!categorizedNames[category]) {
+        return {
+            statusCode: 400,
+            body: JSON.stringify({ error: "Invalid category." })
+        };
+    }
+    
     return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to get categories' })
+        statusCode: 200,
+        body: JSON.stringify({ wifi_names: categorizedNames[category] })
     };
-  }
 };
