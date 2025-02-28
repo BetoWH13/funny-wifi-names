@@ -1,0 +1,28 @@
+{
+  "name": "funny-wifi-names",
+  "version": "1.0.0",
+  "description": "A web application that generates funny and creative WiFi network names",
+  "main": "index.js",
+  "scripts": {
+    "start": "netlify dev",
+    "build": "node build.js",
+    "dev": "netlify dev",
+    "server": "node server.js"
+  },
+  "keywords": [
+    "wifi",
+    "names",
+    "generator",
+    "funny",
+    "netlify",
+    "serverless"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@netlify/functions": "^1.6.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^15.0.0"
+  }
+}

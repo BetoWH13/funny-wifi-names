@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funny WiFi Names Generator</title>
+    <meta name="description" content="Generate hilarious and creative WiFi network names for your home or business network.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-wifi"></i> Funny WiFi Names Generator</h1>
+            <p>Find the perfect hilarious name for your wireless network!</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="generator-section">
+            <div class="generator-controls">
+                <button id="generate-btn" class="btn primary-btn">
+                    <i class="fas fa-random"></i> Generate Random Name
+                </button>
+                <button id="bulk-btn" class="btn secondary-btn">
+                    <i class="fas fa-list"></i> Get 5 Suggestions
+                </button>
+            </div>
+
+            <div id="result-container" class="result-container hidden">
+                <div id="single-result" class="wifi-name-card">
+                    <h3 id="wifi-name">Click Generate to see a funny WiFi name!</h3>
+                    <button class="copy-btn" data-clipboard-target="#wifi-name">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+                <div id="bulk-results" class="bulk-results hidden">
+                    <!-- Bulk results will be added here dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <section class="categories-section">
+            <h2>Browse by Category</h2>
+            <div id="categories-container" class="categories-container">
+                <!-- Categories will be loaded here -->
+                <div class="category-loading">Loading categories...</div>
+            </div>
+        </section>
+
+        <section class="category-results hidden" id="category-results">
+            <h2 id="category-title">Category Names</h2>
+            <div id="category-names-container" class="wifi-names-grid">
+                <!-- Category names will be loaded here -->
+            </div>
+            <button id="back-to-categories" class="btn secondary-btn">
+                <i class="fas fa-arrow-left"></i> Back to Categories
+            </button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Funny WiFi Names Generator. All rights reserved.</p>
+            <p>Need a laugh? Try our WiFi name generator for your home network!</p>
+        </div>
+    </footer>
+
+    <div id="copy-toast" class="toast hidden">Copied to clipboard!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

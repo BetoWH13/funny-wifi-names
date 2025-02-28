@@ -1,0 +1,79 @@
+{
+  "categories": [
+    {
+      "name": "food",
+      "names": [
+        "NachoWiFi",
+        "PizzaBytes",
+        "WiFiOrderUp",
+        "BaconBits",
+        "TacoTuesWiFi",
+        "CookieMonsterNet",
+        "WokThisWay",
+        "BurgerKingdom",
+        "DonutDisturb",
+        "HotPocketOfWiFi"
+      ]
+    },
+    {
+      "name": "movies",
+      "names": [
+        "WiFiHardWithAVengeance",
+        "TheWiFiKnight",
+        "PulpConnection",
+        "TheGoodTheBadTheWiFi",
+        "WirelessGump",
+        "TheSignal",
+        "RouterOfTheLostArk",
+        "TheWiFiWhisperer",
+        "BackToTheFuture5G",
+        "TheMatWiFi"
+      ]
+    },
+    {
+      "name": "puns",
+      "names": [
+        "WiFiSoSerious",
+        "LAN Solo",
+        "ThePromisedLAN",
+        "WiFightTheInevitable",
+        "LANDownUnder",
+        "ThisLANIsMyLAN",
+        "GetOffMyLAN",
+        "WiFiDoIHaveToChooseAName",
+        "RouterIHardlyKnowHer",
+        "ToInfinityAndBeyond5G"
+      ]
+    },
+    {
+      "name": "warnings",
+      "names": [
+        "VirusDownloading",
+        "NotTheWiFiYoureLookingFor",
+        "TooSlowForNetflix",
+        "PasswordIsPassword",
+        "YellPenisForPassword",
+        "FBI_Surveillance_Van",
+        "HackMeIfYouCan",
+        "NoFreeWiFiForYou",
+        "ConnectAndIllFindYou",
+        "TroyAndAbed_In_The_Modem"
+      ]
+    },
+    {
+      "name": "tech",
+      "names": [
+        "ItHertzWhenIP",
+        "RouterIHardlyKnowHer",
+        "LANofTheFreeByte",
+        "404NetworkUnavailable",
+        "Series_of_Tubes",
+        "BillWiFiTheScienceGuy",
+        "TheInternetIsForLAN",
+        "WhoIsYourISPNow",
+        "BandwidthBandits",
+        "IPFreely"
+      ]
+    }
+  ]
+}
