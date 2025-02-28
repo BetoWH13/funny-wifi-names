@@ -5,24 +5,34 @@ const wifiNames = require("../data/wifi-names.json");
 const categorizedNames = require("../data/wifi-categories.json");
 
 exports.handler = async function(event, context) {
-    const category = event.queryStringParameters.category || "all";
+    // Check if a specific category was requested
+    const categoryName = event.queryStringParameters?.name;
     
-    if (category === "all") {
+    if (categoryName) {
+        // Return names for a specific category
+        if (!categorizedNames[categoryName]) {
+            return {
+                statusCode: 404,
+                body: JSON.stringify({ error: `Category '${categoryName}' not found` })
+            };
+        }
+        
         return {
             statusCode: 200,
-            body: JSON.stringify({ wifi_names: wifiNames })
+            body: JSON.stringify({ names: categorizedNames[categoryName] })
         };
-    }
-    
-    if (!categorizedNames[category]) {
+    } else {
+        // Return all categories (names only, not the WiFi names)
+        const categoryList = Object.keys(categorizedNames).map(name => ({
+            name: name,
+            count: categorizedNames[name].length
+        }));
+        
         return {
-            statusCode: 400,
-            body: JSON.stringify({ error: "Invalid category." })
+            statusCode: 200,
+            body: JSON.stringify({
+                categories: categoryList
+            })
         };
     }
-    
-    return {
-        statusCode: 200,
-        body: JSON.stringify({ wifi_names: categorizedNames[category] })
-    };
 };
