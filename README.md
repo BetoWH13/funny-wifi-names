@@ -8,6 +8,7 @@ A simple web application that generates funny and creative WiFi network names. P
 - Browse WiFi names by categories
 - Get multiple suggestions at once
 - Copy names to clipboard with a single click
+- Read entertaining blog posts about WiFi names and network humor
 
 ## Technologies Used
 
@@ -27,6 +28,16 @@ A simple web application that generates funny and creative WiFi network names. P
  │   ├── index.html    # Home page (Funny WiFi Name Generator)
  │   ├── styles.css    # CSS styles
  │   ├── script.js     # JavaScript for button interaction
+ │   ├── robots.txt    # Search engine crawling instructions
+ │   ├── sitemap.xml   # Site structure for search engines
+ │   ├── /blog         # Blog section
+ │   │   ├── index.html   # Blog home page
+ │   │   ├── blog.css     # Blog-specific styles
+ │   │   ├── /posts       # Individual blog posts
+ │   │   │   ├── post.css # Blog post styles
+ │   │   │   ├── wifi-neighbors-communication.html # Sample post
+ │   │   ├── /category    # Category archive pages
+ │   │   ├── /page        # Pagination pages
  ├── /data
  │   ├── wifi-names.json  # JSON file with all funny WiFi names
  ├── netlify.toml      # Netlify configuration
@@ -97,6 +108,23 @@ A simple web application that generates funny and creative WiFi network names. P
 - `/api/bulk?count=5` - Get multiple WiFi names (specify count)
 - `/api/categories` - Get all available categories
 - `/api/categories?name=food` - Get WiFi names from a specific category
+
+## Blog Section
+
+The blog section provides entertaining and informative content related to WiFi names, network security, and internet humor. Features include:
+
+- Text-based content optimized for fast loading
+- Categorized blog posts
+- Social sharing capabilities
+- Related posts suggestions
+- Mobile-responsive design
+
+### Blog Structure
+
+- `/blog/index.html` - Main blog listing page with recent posts
+- `/blog/posts/` - Individual blog post pages
+- `/blog/category/` - Category archive pages
+- `/blog/page/` - Pagination for blog listings
 
 ## License
 
