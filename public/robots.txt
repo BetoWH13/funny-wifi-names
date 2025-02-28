@@ -1,0 +1,8 @@
+# Robots.txt file for Funny WiFi Names Generator
+# https://funny-wifi-names.netlify.app/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://funny-wifi-names.netlify.app/sitemap.xml
