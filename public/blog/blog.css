@@ -109,6 +109,19 @@ main.container {
     transform: translateX(3px);
 }
 
+/* Post Image */
+.post-image {
+    text-align: center;
+    padding: 1rem;
+}
+
+.post-image img {
+    max-width: 150px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+}
+
 /* Pagination */
 .pagination {
     display: flex;
