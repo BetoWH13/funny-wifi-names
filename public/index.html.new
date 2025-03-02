@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funny WiFi Names Generator | Creative Network Names</title>
+    <meta name="description" content="Generate hilarious and creative Funny WiFi Names for your home or business network. Free tool with hundreds of unique, clever, and witty network names.">
+    <meta name="keywords" content="funny wifi names, wifi name generator, creative network names, hilarious wifi names, witty network names">
+    <meta name="author" content="Funny WiFi Names Generator">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://funny-wifi-names.netlify.app/">
+    <meta property="og:title" content="Funny WiFi Names Generator | Creative Network Names">
+    <meta property="og:description" content="Generate hilarious and creative Funny WiFi Names for your home or business network. Free tool with hundreds of unique names.">
+    <meta property="og:image" content="https://funny-wifi-names.netlify.app/wifi-icon.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://funny-wifi-names.netlify.app/">
+    <meta property="twitter:title" content="Funny WiFi Names Generator | Creative Network Names">
+    <meta property="twitter:description" content="Generate hilarious and creative Funny WiFi Names for your home or business network. Free tool with hundreds of unique names.">
+    <meta property="twitter:image" content="https://funny-wifi-names.netlify.app/wifi-icon.png">
+    
+    <!-- Canonical URL -->
+    <meta rel="canonical" href="https://funny-wifi-names.netlify.app/">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1><i class="fas fa-wifi"></i> Funny WiFi Names Generator</h1>
+                <p>Find the perfect hilarious name for your wireless network!</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="blog/index.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="generator-section">
+            <div class="generator-controls">
+                <button id="generate-btn" class="btn primary-btn">
+                    <i class="fas fa-random"></i> Generate Random Name
+                </button>
+                <button id="bulk-btn" class="btn secondary-btn">
+                    <i class="fas fa-list"></i> Get 5 Suggestions
+                </button>
+            </div>
+
+            <div id="result-container" class="result-container hidden">
+                <div id="single-result" class="wifi-name-card">
+                    <h3 id="wifi-name">Click Generate to see a funny WiFi name!</h3>
+                    <button class="copy-btn" data-clipboard-target="#wifi-name">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+                <div id="bulk-results" class="bulk-results hidden">
+                    <!-- Bulk results will be added here dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <h2>Why Choose Our WiFi Name Generator?</h2>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-laugh-beam"></i>
+                        <h3>2000+ Hilarious Names</h3>
+                        <p>Our database includes over 2000 funny, clever, and punny WiFi names for every personality. Check out our <a href="blog/posts/ultimate-wifi-puns-guide.html">ultimate guide to WiFi puns</a> for inspiration!</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-tags"></i>
+                        <h3>Browse by Category</h3>
+                        <p>Find the perfect name by category: movies, tech, puns, and more. Explore our <a href="blog/posts/movie-inspired-wifi-names.html">movie-inspired WiFi names</a> and <a href="blog/posts/tech-wifi-names-nerds.html">tech WiFi names for nerds</a>!</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-copy"></i>
+                        <h3>One-Click Copy</h3>
+                        <p>Found the perfect name? Copy it to your clipboard with just one click and set up your router. Learn how to <a href="blog/posts/funny-name-serious-security.html">balance humor and security</a> in your WiFi name.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories-section">
+            <div class="container">
+                <h2>Popular WiFi Name Categories</h2>
+                <div class="categories">
+                    <div class="category">
+                        <h3>Funny Puns</h3>
+                        <p>WiFi puns that will make everyone groan and smile. Check out our <a href="blog/posts/ultimate-wifi-puns-guide.html">collection of 50 WiFi puns</a> that will make you LOL!</p>
+                        <a href="#" class="btn">Browse Puns</a>
+                    </div>
+                    <div class="category">
+                        <h3>Movie References</h3>
+                        <p>From Star Wars to Marvel, show off your film knowledge. Explore our <a href="blog/posts/movie-inspired-wifi-names.html">25 movie-inspired WiFi names</a> for film buffs.</p>
+                        <a href="#" class="btn">Browse Movies</a>
+                    </div>
+                    <div class="category">
+                        <h3>Tech & Nerdy</h3>
+                        <p>For the true tech enthusiasts and computer nerds. Discover <a href="blog/posts/tech-wifi-names-nerds.html">30 tech WiFi names</a> only true nerds will understand.</p>
+                        <a href="#" class="btn">Browse Tech</a>
+                    </div>
+                    <div class="category">
+                        <h3>Warning Messages</h3>
+                        <p>Keep nosy neighbors away with these deterrent names. See our guide to <a href="blog/posts/warning-wifi-names-keep-neighbors-away.html">warning WiFi names</a> that will keep neighbors away.</p>
+                        <a href="#" class="btn">Browse Warnings</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-section">
+            <div class="container">
+                <h2>WiFi Name Blog</h2>
+                <p>Learn more about creative WiFi naming and network security in our blog.</p>
+                <div class="blog-posts">
+                    <div class="blog-post">
+                        <h3><a href="blog/posts/funny-name-serious-security.html">Funny Name, Serious Security</a></h3>
+                        <p>How to balance humor and protection in your WiFi network name.</p>
+                        <a href="blog/posts/funny-name-serious-security.html" class="read-more">Read More →</a>
+                    </div>
+                    <div class="blog-post">
+                        <h3><a href="blog/posts/wifi-neighbors-communication.html">Communicating with Neighbors via WiFi Names</a></h3>
+                        <p>The hilarious story of how I communicated with my neighbors using only WiFi names.</p>
+                        <a href="blog/posts/wifi-neighbors-communication.html" class="read-more">Read More →</a>
+                    </div>
+                    <div class="blog-post">
+                        <h3><a href="blog/index.html">More Articles</a></h3>
+                        <p>Explore our full collection of WiFi name articles and guides.</p>
+                        <a href="blog/index.html" class="read-more">View All →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Free Generator Section -->
+        <section class="free-generator-section">
+            <div class="container">
+                <h2>Generate Free WiFi Names</h2>
+                <div class="generator-info">
+                    <div class="generator-description">
+                        <p>Need more funny WiFi names? Our generator is completely free to use!</p>
+                        <div class="features-list">
+                            <div class="feature">
+                                <i class="fas fa-infinity"></i>
+                                <p><strong>Unlimited Generation:</strong> Create as many names as you want</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-smile-beam"></i>
+                                <p><strong>Fresh Content:</strong> New names added regularly</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-copy"></i>
+                                <p><strong>Easy to Use:</strong> One-click copy to clipboard</p>
+                            </div>
+                        </div>
+                        <div class="cta-buttons">
+                            <button class="btn primary-btn" onclick="document.getElementById('generate-btn').click()">
+                                <i class="fas fa-random"></i> Generate Random Name
+                            </button>
+                            <button class="btn secondary-btn" onclick="document.getElementById('bulk-btn').click()">
+                                <i class="fas fa-list"></i> Get Multiple Names
+                            </button>
+                        </div>
+                    </div>
+                    <div class="generator-preview">
+                        <div class="preview-card">
+                            <h3>Sample Names:</h3>
+                            <ul>
+                                <li><i class="fas fa-wifi"></i> Pretty Fly for a WiFi</li>
+                                <li><i class="fas fa-wifi"></i> The LAN Before Time</li>
+                                <li><i class="fas fa-wifi"></i> Wi Fight the Inevitable</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-results hidden" id="category-results">
+            <h2 id="category-title">Category Names</h2>
+            <div id="category-names-container" class="wifi-names-grid">
+                <!-- Category names will be loaded here -->
+            </div>
+            <button id="back-to-categories" class="btn secondary-btn">
+                <i class="fas fa-arrow-left"></i> Back to Categories
+            </button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Funny WiFi Names Generator. All rights reserved.</p>
+            <p>Need a laugh? Try our WiFi name generator for your home network!</p>
+            <div class="footer-links">
+                <a href="legal/terms-of-service.html">Terms of Service</a>
+                <a href="legal/privacy-policy.html">Privacy Policy</a>
+                <a href="legal/affiliate-disclosure.html">Affiliate Disclosure</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="copy-toast" class="toast hidden">Copied to clipboard!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
