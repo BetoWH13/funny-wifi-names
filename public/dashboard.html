@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Funny WiFi Names</title>
+    <meta name="description" content="User dashboard for Funny WiFi Names Generator">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .dashboard-container {
+            background-color: var(--card-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        .user-details h3 {
+            margin: 0;
+            color: var(--primary-color);
+        }
+        
+        .user-details p {
+            margin: 0.25rem 0 0;
+            color: var(--text-light);
+        }
+        
+        .logout-button {
+            background-color: #f5f5f5;
+            color: var(--text-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .logout-button i {
+            margin-right: 0.5rem;
+        }
+        
+        .logout-button:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .dashboard-section {
+            margin-bottom: 2rem;
+        }
+        
+        .dashboard-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .api-key-container {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .api-key {
+            font-family: monospace;
+            font-size: 1rem;
+        }
+        
+        .copy-button {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .copy-button:hover {
+            color: var(--secondary-color);
+        }
+        
+        .usage-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-card {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .stat-card h4 {
+            margin: 0 0 0.5rem;
+            color: var(--text-color);
+        }
+        
+        .stat-card .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .api-test-form {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        
+        .api-test-form .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .api-test-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .api-test-form button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .api-response {
+            margin-top: 1rem;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            display: none;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1><i class="fas fa-wifi"></i> Funny WiFi Names</h1>
+                <p>User Dashboard</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="api.html"><i class="fas fa-code"></i> API</a></li>
+                    <li><a href="blog/index.html"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <h3 id="user-name">Loading...</h3>
+                        <p id="user-role">Loading...</p>
+                    </div>
+                </div>
+                <button id="logout-button" class="logout-button">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+            
+            <div class="dashboard-section">
+                <h3>API Access</h3>
+                <div class="api-key-container">
+                    <div>
+                        <p>Your API Key:</p>
+                        <div class="api-key" id="api-key">sk_test_yourapikey123456789</div>
+                    </div>
+                    <button class="copy-button" id="copy-api-key">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <p>Use this key in the Authorization header of your API requests.</p>
+            </div>
+            
+            <div class="dashboard-section">
+                <h3>Usage Statistics</h3>
+                <div class="usage-stats">
+                    <div class="stat-card">
+                        <h4>API Calls Today</h4>
+                        <div class="stat-value">7</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Remaining Calls</h4>
+                        <div class="stat-value">3</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Total API Calls</h4>
+                        <div class="stat-value">42</div>
+                    </div>
+                </div>
+                <p>Your current plan allows 10 API calls per day. <a href="pricing.html">Upgrade your plan</a> for more access.</p>
+            </div>
+            
+            <div class="dashboard-section">
+                <h3>Test Your API Access</h3>
+                <div class="api-test-form">
+                    <div class="form-group">
+                        <label for="api-endpoint">Endpoint:</label>
+                        <select id="api-endpoint" class="form-control">
+                            <option value="/api/protected/random">Get Random WiFi Name</option>
+                        </select>
+                    </div>
+                    <button id="test-api-button">
+                        <i class="fas fa-play"></i> Test API
+                    </button>
+                    <div id="api-response" class="api-response"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Funny WiFi Names Generator. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Check if user is logged in
+        const user = JSON.parse(localStorage.getItem('user') || '{}');
+        
+        if (!user.username) {
+            // Redirect to login page if not logged in
+            window.location.href = 'login.html';
+        } else {
+            // Update user information
+            document.getElementById('user-name').textContent = user.username;
+            document.getElementById('user-role').textContent = user.role;
+        }
+        
+        // Handle logout
+        document.getElementById('logout-button').addEventListener('click', function() {
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        });
+        
+        // Copy API key
+        document.getElementById('copy-api-key').addEventListener('click', function() {
+            const apiKey = document.getElementById('api-key').textContent;
+            navigator.clipboard.writeText(apiKey).then(function() {
+                alert('API key copied to clipboard!');
+            });
+        });
+        
+        // Test API
+        document.getElementById('test-api-button').addEventListener('click', async function() {
+            const endpoint = document.getElementById('api-endpoint').value;
+            const responseElement = document.getElementById('api-response');
+            
+            responseElement.style.display = 'block';
+            responseElement.textContent = 'Loading...';
+            
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: user.username,
+                        password: 'user123' // This is just for demo purposes
+                    })
+                });
+                
+                const data = await response.json();
+                responseElement.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                console.error('API test error:', error);
+                responseElement.textContent = 'Error: ' + error.message;
+            }
+        });
+    </script>
+</body>
+</html>
