@@ -144,33 +144,45 @@
             </div>
         </section>
 
-        <!-- API Access Section -->
-        <section class="api-access-section">
+        <!-- Free Generator Section -->
+        <section class="free-generator-section">
             <div class="container">
-                <h2>Developer API Access</h2>
-                <div class="api-info">
-                    <div class="api-description">
-                        <p>Integrate funny WiFi names into your own applications with our simple REST API.</p>
-                        <div class="rate-limit-notice">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <p><strong>Free Tier:</strong> Limited to 10 requests per day per IP address</p>
+                <h2>Generate Free WiFi Names</h2>
+                <div class="generator-info">
+                    <div class="generator-description">
+                        <p>Need more funny WiFi names? Our generator is completely free to use!</p>
+                        <div class="features-list">
+                            <div class="feature">
+                                <i class="fas fa-infinity"></i>
+                                <p><strong>Unlimited Generation:</strong> Create as many names as you want</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-smile-beam"></i>
+                                <p><strong>Fresh Content:</strong> New names added regularly</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-copy"></i>
+                                <p><strong>Easy to Use:</strong> One-click copy to clipboard</p>
+                            </div>
                         </div>
-                        <ul class="api-features">
-                            <li><i class="fas fa-check-circle"></i> Simple REST endpoints</li>
-                            <li><i class="fas fa-check-circle"></i> JSON responses</li>
-                            <li><i class="fas fa-check-circle"></i> Random name generation</li>
-                            <li><i class="fas fa-check-circle"></i> Premium plans available</li>
-                        </ul>
-                        <a href="api.html" class="btn primary-btn">View API Documentation</a>
+                        <div class="cta-buttons">
+                            <button class="btn primary-btn" onclick="document.getElementById('generate-btn').click()">
+                                <i class="fas fa-random"></i> Generate Random Name
+                            </button>
+                            <button class="btn secondary-btn" onclick="document.getElementById('bulk-btn').click()">
+                                <i class="fas fa-list"></i> Get Multiple Names
+                            </button>
+                        </div>
                     </div>
-                    <div class="api-code-example">
-                        <pre><code>// Example API usage
-fetch('/.netlify/functions/random')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data.name);
-    // "Pretty Fly for a WiFi"
-  });</code></pre>
+                    <div class="generator-preview">
+                        <div class="preview-card">
+                            <h3>Sample Names:</h3>
+                            <ul>
+                                <li><i class="fas fa-wifi"></i> Pretty Fly for a WiFi</li>
+                                <li><i class="fas fa-wifi"></i> The LAN Before Time</li>
+                                <li><i class="fas fa-wifi"></i> Wi Fight the Inevitable</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
