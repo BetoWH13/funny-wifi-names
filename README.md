@@ -109,6 +109,15 @@ A simple web application that generates funny and creative WiFi network names. P
 - `/api/categories` - Get all available categories
 - `/api/categories?name=food` - Get WiFi names from a specific category
 
+### Rate Limiting
+
+The API includes rate limiting to prevent abuse:
+
+- Free users are limited to 10 API requests per day (per IP address)
+- Rate limits apply to both `/api/random` and `/api/bulk` endpoints
+- When the rate limit is exceeded, the API returns a 429 status code with an error message
+- For production deployment, configure a Redis instance by setting the `REDIS_URL` environment variable
+
 ## Blog Section
 
 The blog section provides entertaining and informative content related to WiFi names, network security, and internet humor. Features include:

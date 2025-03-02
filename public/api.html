@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - Funny WiFi Names Generator</title>
+    <meta name="description" content="API documentation for the Funny WiFi Names Generator. Access our database of funny WiFi names programmatically.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1><i class="fas fa-wifi"></i> Funny WiFi Names Generator</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog/index.html">Blog</a></li>
+                        <li><a href="api.html" class="active">API</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="api-documentation">
+            <h1>API Documentation</h1>
+            <p class="lead">Access our database of funny WiFi names programmatically through our simple REST API.</p>
+
+            <div class="api-pricing">
+                <h2>API Access Plans</h2>
+                <div class="pricing-cards">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Free</h3>
+                            <p class="price">$0</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> 10 requests per day</li>
+                                <li><i class="fas fa-check"></i> Random name endpoint</li>
+                                <li><i class="fas fa-check"></i> Basic rate limiting</li>
+                                <li><i class="fas fa-times"></i> Bulk requests</li>
+                                <li><i class="fas fa-times"></i> Category filtering</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <a href="#free-api" class="btn">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="pricing-card featured">
+                        <div class="pricing-header">
+                            <h3>Premium</h3>
+                            <p class="price">$9.99<span>/month</span></p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> 10,000 requests per day</li>
+                                <li><i class="fas fa-check"></i> Random name endpoint</li>
+                                <li><i class="fas fa-check"></i> Bulk requests (up to 100)</li>
+                                <li><i class="fas fa-check"></i> Category filtering</li>
+                                <li><i class="fas fa-check"></i> API key access</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <a href="#contact" class="btn primary-btn">Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Enterprise</h3>
+                            <p class="price">Custom</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Unlimited requests</li>
+                                <li><i class="fas fa-check"></i> All endpoints</li>
+                                <li><i class="fas fa-check"></i> Custom integration</li>
+                                <li><i class="fas fa-check"></i> Dedicated support</li>
+                                <li><i class="fas fa-check"></i> SLA guarantees</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <a href="#contact" class="btn">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="free-api" class="api-section">
+                <h2>Free API Usage</h2>
+                <div class="rate-limit-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p><strong>Rate Limit:</strong> Free API access is limited to 10 requests per day per IP address. For higher limits, please consider our Premium or Enterprise plans.</p>
+                </div>
+
+                <h3>Random WiFi Name</h3>
+                <div class="endpoint">
+                    <code>GET /.netlify/functions/random</code>
+                    <p>Returns a random funny WiFi name from our database.</p>
+                    <h4>Example Response:</h4>
+                    <pre><code>{
+  "name": "Pretty Fly for a WiFi"
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="api-section">
+                <h2>Premium API Endpoints</h2>
+                <p>The following endpoints are available to Premium and Enterprise subscribers:</p>
+
+                <h3>Bulk WiFi Names</h3>
+                <div class="endpoint">
+                    <code>GET /.netlify/functions/bulk?count=5</code>
+                    <p>Returns multiple WiFi names at once. Use the <code>count</code> parameter to specify how many names you want (max 100).</p>
+                    <h4>Example Response:</h4>
+                    <pre><code>{
+  "names": [
+    "Pretty Fly for a WiFi",
+    "The LAN Before Time",
+    "Wi Fight the Inevitable",
+    "Bill Wi the Science Fi",
+    "The Promised LAN"
+  ]
+}</code></pre>
+                </div>
+
+                <h3>Category Filtering</h3>
+                <div class="endpoint">
+                    <code>GET /.netlify/functions/categories?name=movie</code>
+                    <p>Returns WiFi names from a specific category.</p>
+                    <h4>Available Categories:</h4>
+                    <ul class="categories-list">
+                        <li>movies</li>
+                        <li>puns</li>
+                        <li>tech</li>
+                        <li>warning</li>
+                        <li>food</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="contact" class="api-section">
+                <h2>Get API Access</h2>
+                <p>Interested in our Premium or Enterprise API plans? Contact us for more information and pricing.</p>
+                <a href="mailto:api@funnywifinames.com" class="btn primary-btn">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Funny WiFi Names Generator. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="legal/privacy-policy.html">Privacy Policy</a>
+                <a href="legal/terms-of-service.html">Terms of Service</a>
+                <a href="legal/affiliate-disclosure.html">Affiliate Disclosure</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -37,8 +37,10 @@
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="blog/index.html"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="blog/index.html">Blog</a></li>
+                    <li><a href="api.html">API</a></li>
+                    <li><a href="about.html">About</a></li>
                 </ul>
             </nav>
         </div>
@@ -138,6 +140,38 @@
                         <h3><a href="blog/index.html">More Articles</a></h3>
                         <p>Explore our full collection of WiFi name articles and guides.</p>
                         <a href="blog/index.html" class="read-more">View All →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Access Section -->
+        <section class="api-access-section">
+            <div class="container">
+                <h2>Developer API Access</h2>
+                <div class="api-info">
+                    <div class="api-description">
+                        <p>Integrate funny WiFi names into your own applications with our simple REST API.</p>
+                        <div class="rate-limit-notice">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p><strong>Free Tier:</strong> Limited to 10 requests per day per IP address</p>
+                        </div>
+                        <ul class="api-features">
+                            <li><i class="fas fa-check-circle"></i> Simple REST endpoints</li>
+                            <li><i class="fas fa-check-circle"></i> JSON responses</li>
+                            <li><i class="fas fa-check-circle"></i> Random name generation</li>
+                            <li><i class="fas fa-check-circle"></i> Premium plans available</li>
+                        </ul>
+                        <a href="api.html" class="btn primary-btn">View API Documentation</a>
+                    </div>
+                    <div class="api-code-example">
+                        <pre><code>// Example API usage
+fetch('/.netlify/functions/random')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data.name);
+    // "Pretty Fly for a WiFi"
+  });</code></pre>
                     </div>
                 </div>
             </div>
