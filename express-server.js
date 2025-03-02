@@ -11,6 +11,14 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Add security headers
+app.use((req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    next();
+});
+
 const logFile = 'logs.txt';
 const usersFile = 'users.json';
 
@@ -51,25 +59,22 @@ const authenticate = (req, res, next) => {
         return res.status(401).json({ error: "Invalid credentials" });
     }
     
-    // Authentication successful
     logRequest(req.ip, `LOGIN SUCCESS - User: ${username}`);
     req.user = user;
     next();
 };
 
-// Rate Limiter Middleware
+// Rate Limiter Middleware - More restrictive
 const limiter = rateLimit({
-    windowMs: 24 * 60 * 60 * 1000, // 24 hours
-    max: 10, // Free users get 10 requests per day
-    keyGenerator: (req) => req.ip,
-    handler: (req, res) => {
-        logRequest(req.ip, "RATE LIMIT EXCEEDED");
-        res.status(429).json({ error: "Rate limit exceeded. Upgrade for more access!" });
-    }
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per windowMs
+    message: { error: "Too many requests, please try again later" },
+    standardHeaders: true,
+    legacyHeaders: false
 });
 
-// Apply rate limiter to API endpoints
-app.use('/api/random', limiter);
+// Apply rate limiter to all routes
+app.use(limiter);
 
 // Login route
 app.post('/api/login', (req, res) => {
@@ -87,7 +92,6 @@ app.post('/api/login', (req, res) => {
         return res.status(401).json({ error: "Invalid credentials" });
     }
     
-    // Authentication successful
     logRequest(req.ip, `LOGIN SUCCESS - User: ${username}`);
     
     // Return user info (excluding password)
@@ -110,12 +114,11 @@ app.post('/api/protected/random', authenticate, (req, res) => {
     logRequest(req.ip, `PROTECTED REQUEST - User: ${req.user.username}`);
     res.json({ 
         wifi_name: randomName,
-        user: req.user.username,
-        role: req.user.role
+        user: req.user.username
     });
 });
 
-// Public API Route
+// Public API Route with rate limiting
 app.get('/api/random', (req, res) => {
     const wifiNames = [
         "LAN Solo", "Pretty Fly for a Wi-Fi", "The LAN Before Time",
