@@ -92,6 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     async function loadCategories() {
+        if (!categoriesContainer) return; // Skip if the element doesn't exist on this page
+        
         try {
             const response = await fetch(CATEGORIES_API);
             const data = await response.json();
